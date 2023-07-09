@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "sdras.vue-vscode-snippets",
+    "Vue.vscode-typescript-vue-plugin",
+    "Vue.volar",
+    "uni-helper.uni-ui-snippets-vscode",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint"
+  ]
+}

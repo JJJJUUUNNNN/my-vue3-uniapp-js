@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "dcloudio",
+    "ifndef",
+    "NVUE",
+    "scrolltolower",
+    "shenhezhong",
+    "shime",
+    "weitongguo",
+    "yitongguo",
+    "yxxx"
+  ],
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+}
