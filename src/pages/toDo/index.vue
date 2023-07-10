@@ -71,6 +71,7 @@ import empty from '../component/empty/index.vue'
 			},
 			toggleNav(e){
 				this.current=e
+				uni.na
 			}
 		}
 	}
