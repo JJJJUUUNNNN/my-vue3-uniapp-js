@@ -16,7 +16,7 @@ export default {
 /*每个页面公共css */
 // 设置整个项目的背景色
 	page {
-		background-color: #F5F7FC;
+		background-color: #fff;
 	}
 
 </style>

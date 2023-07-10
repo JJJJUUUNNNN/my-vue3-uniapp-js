@@ -10,4 +10,7 @@ export default defineConfig({
       imports:['vue','uni-app']
     })
   ],
+  resolve:{
+    dedupe:['vue']
+  }
 })

@@ -10,34 +10,49 @@
 	},
 	"pages": [
 		{
-			"path": "pages/toDo/index",
+			"path": "pages/announcement/index",
 			"style": {
 					"navigationBarBackgroundColor": "#fff",
-					"navigationBarTitleText": "待办事项"
+					"navigationBarTitleText": "通知公告"
+			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTitleText": "首页",
+					"navigationStyle":"custom"
 			}
 	},
-			{
-					"path": "pages/publish/index",
-					"style": {
-							"navigationBarBackgroundColor": "#fff",
-							"navigationBarTitleText": "发布公告",
-							"navigationStyle": "custom"
-					}
-			},
-			{
-					"path": "pages/toDo/details/finish/index",
-					"style": {
-							"navigationBarBackgroundColor": "#fff",
-							"navigationBarTitleText": "已处理"
-					}
-			},
-			{
-					"path": "pages/toDo/details/pending/index",
-					"style": {
-							"navigationBarBackgroundColor": "#fff",
-							"navigationBarTitleText": "待处理"
-					}
-			}
+	{
+		"path": "pages/statistics/dataStatistics",
+		"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "统计数据"
+		}
+},
+{
+	"path": "pages/statistics/personalInfo",
+	"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTitleText": "个人信息登记"
+	}
+},
+{
+	"path": "pages/statistics/companyProductInfo",
+	"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTitleText": "集团产品信息登记"
+	}
+},
+
+{
+	"path": "pages/announcement/platformAnnouncement/index",
+	"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTitleText": "平台通知公告"
+	}
+}
 	],
 	"easycom": {
 		"autoscan": true,
