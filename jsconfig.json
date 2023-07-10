@@ -1,11 +1,17 @@
 {
-   "compilerOptions": {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": [
-   "@dcloudio/types",
-   "miniprogram-api-typings",
-   "mini-types",
-   "@uni-helper/uni-app-types",
-   "@uni-helper/uni-ui-types",
-   ]
-   }
+      "@dcloudio/types",
+      "miniprogram-api-typings",
+      "mini-types",
+      "@uni-helper/uni-app-types",
+      "@uni-helper/uni-ui-types"
+    ]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

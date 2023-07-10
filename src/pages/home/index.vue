@@ -1,295 +1,514 @@
 <template>
-	<view class="container">
-		<view class="nav-bar">
-			<view class="title">移动客户管理平台</view>
-		</view>
-		<view class="banner">
-			<image mode="widthFix" class="image" src="https://files.axshare.com/gsc/5UOGIT/95/ab/c0/95abc018a8ad4277b311f253c28dba84/images/%E7%A7%BB%E5%8A%A8%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/u56.png?pageId=86fb2f17-ea96-48fa-b262-8bbabd31a75c"></image>
-		</view>
-		<view class="statistics-box">
-			<view class="statistics">
-				<view class="data-statistics item">
-					<view class="top">
-						<text>数据统计</text>
-						<text class="more" @click="checkMore">查看更多>></text>
-					</view>
-					<view class="data-item-box">
-						<view class="data-item">
-						<text class="count">852</text>
-						<text class="title">登记客户数</text>
-					</view>
-					<view class="data-item">
-						<text class="count">85</text>
-						<text class="title">登记集团数</text>
-					</view>
-					</view>
-				</view>
-				<view class="info">
-					<view class="personal-info item" @click="setPersonalInfo">
-						<image class="image" src="https://files.axshare.com/gsc/5UOGIT/95/ab/c0/95abc018a8ad4277b311f253c28dba84/images/%E7%A7%BB%E5%8A%A8%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/u51.svg?pageId=86fb2f17-ea96-48fa-b262-8bbabd31a75c"></image>
-						<text>个人/家庭信息登记</text>
-					</view>
-					<view class="company-produc item" @click="setCompanyProducInfo">
-						<image class="image" src="https://files.axshare.com/gsc/5UOGIT/95/ab/c0/95abc018a8ad4277b311f253c28dba84/images/%E7%A7%BB%E5%8A%A8%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/u54.png?pageId=86fb2f17-ea96-48fa-b262-8bbabd31a75c"></image>
-						<text>集团产品信息登记</text>
-					</view>
-				</view>
-			</view>
-		</view>
+  <view class="home">
+    <CustomNavbar title="移动客户管理系统" />
+    <view class="header">
+      <image src="/static/head.png"></image>
+      <text class="username">林芝业</text>
+      <text class="userpost">业务员</text>
+    </view>
+    <view class="main">
+      <!-- banner -->
+      <image
+        class="banner"
+        src="https://img.1ppt.com/uploads/allimg/2012/1_201214183937_1.jpg"
+        alt=""
+      ></image>
+      <!-- 统计数据 -->
+      <view class="statistics">
+        <view class="statistics-top">
+          <text>数据统计</text>
+          <text class="more" @click="checkMore">查看更多 ></text>
+        </view>
+        <view class="statistics-bottom">
+          <view class="statistics-item">
+            <text class="count blue">852</text>
+            <text class="title">登记客户数</text>
+          </view>
+          <view class="statistics-item">
+            <text class="count yellow">85</text>
+            <text class="title">登记集团数</text>
+          </view>
+        </view>
+      </view>
+      <!-- 广告 -->
+      <view class="ad">
+        <image src="/static/home-ad1.png" @click="setPersonalInfo"></image>
+        <image src="/static/home-ad2.png" @click="setCompanyProducInfo"></image>
+      </view>
+      <!-- 通知公告 -->
 
-		<view class="empty"></view>
+      <view class="notice">
+        <view class="notice-title">
+          <text>通知公告</text>
+          <view class="more" @click="handleMessage"
+            >未读消息 <text class="num">3</text>
+          </view>
+        </view>
+        <view class="notice-list">
+          <view
+            class="notice-list-item"
+            v-for="(item, index) in 2"
+            :key="index"
+            @click="getDetail"
+          >
+            <view class="title"
+              ><view class="bot"></view>关于用户信息管理方式</view
+            >
+            <view class="info">发布于：铁通公司 2022年5月1日</view>
+            <view class="more">></view>
+          </view>
+        </view>
+      </view>
+    </view>
 
-		<view class="section">
-			<view class="section-icon"></view>
-			<text>通知公告</text>
-			<view @click="handleMessage">未读消息 <text class="num">3</text></view>
-		</view>
+    <!-- <view class="nav-footer">
+      <view class="item">
+        <uni-icons
+          custom-prefix="custom-icon"
+          type="home-filled"
+          size="30"
+        ></uni-icons>
+        <text>首页</text>
+      </view>
+      <view class="item">
+        <uni-icons
+          custom-prefix="custom-icon"
+          type="search"
+          size="30"
+        ></uni-icons>
+        <text>查询</text>
+      </view>
+      <view class="item">
+        <uni-icons
+          custom-prefix="custom-icon"
+          type="person-filled"
+          size="30"
+        ></uni-icons>
+        <text>个人中心</text>
+      </view>
+    </view> -->
 
-		<view class="list" v-for="(item,index) in 2" :key="index" @click="getDetail">
-			<view class="item-box">
-				<view class="text">
-					<view class="title">关于用户信息管理方式</view>
-					<view class="info">发布于：铁通公司 2022年5月1日</view>
-				</view>
-				<view class="right">></view>
-			</view>
-		</view>
+    <!-- <view class="fixed-button">
+      <button>固定按钮</button>
+    </view> -->
+      <!-- <view class="bottom-tab-bar">
+      <view v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="{ active: index === activeIndex }" @click="handleTabClick(index)">
+        <image :src="tab.icon" class="tab-icon"></image>
+        <text class="tab-title">{{ tab.title }}</text>
+      </view>
+    </view> -->
+  </view>
 
-		<view class="nav-footer">
-			<view class="item">
-				<uni-icons custom-prefix="custom-icon" type="home-filled" size="30"></uni-icons>
-				<text>首页</text>
-			</view>
-			<view class="item">
-				<uni-icons custom-prefix="custom-icon" type="search" size="30"></uni-icons>
-				<text>查询</text>
-			</view>
-			<view class="item">
-				<uni-icons custom-prefix="custom-icon" type="person-filled" size="30"></uni-icons>
-				<text>个人中心</text>
-			</view>
-		</view>
-	</view>
+  <view class="custom-tabbar">
+    <!-- 自定义导航栏 -->
+    <view class="tabbar-item" @click="goToPage('/pages/home/home')">
+      <text class="tabbar-item-icon">首页</text>
+    </view>
+    <view class="tabbar-item" @click="goToPage('/pages/cart/cart')">
+      <text class="tabbar-item-icon">购物车</text>
+    </view>
+    <view class="tabbar-item" @click="goToPage('/pages/user/user')">
+      <text class="tabbar-item-icon">个人中心</text>
+    </view>
+  </view>
 </template>
 
 <script setup>
+import CustomNavbar from "../../component/CustomNavbar.vue";
 
-function checkMore(){
-	console.log('统计数据')
-	uni.navigateTo({
-		url:'/pages/statistics/dataStatistics'
-	})
+function checkMore() {
+  console.log("统计数据");
+  uni.navigateTo({
+    url: "/pages/statistics/dataStatistics",
+  });
 }
 
-function setPersonalInfo(){
-	console.log('个人信息登记')
-	uni.navigateTo({
-		url:'/pages/statistics/personalInfo'
-	})
+function setPersonalInfo() {
+  console.log("个人信息登记");
+  uni.navigateTo({
+    url: "/pages/statistics/personalInfo",
+  });
 }
 
-function setCompanyProducInfo(){
-	console.log('集团产品信息登记')
-	uni.navigateTo({
-		url:'/pages/statistics/companyProductInfo'
-	})
+function setCompanyProducInfo() {
+  console.log("集团产品信息登记");
+  uni.navigateTo({
+    url: "/pages/statistics/companyProductInfo",
+  });
 }
 
-function handleMessage(){
-	console.log('通知公告')
-	uni.navigateTo({
-		url:'/pages/announcement/index'
-	})
+function handleMessage() {
+  console.log("通知公告");
+  uni.navigateTo({
+    url: "/pages/announcement/index",
+  });
 }
 
-function getDetail(){
-	console.log('平台通知公告')
-	uni.navigateTo({
-		url:'/pages/announcement/platformAnnouncement/index'
-	})
+function getDetail() {
+  console.log("平台通知公告");
+  uni.navigateTo({
+    url: "/pages/announcement/platformAnnouncement/index",
+  });
 }
+
+const windowWidth = ref(0);
+
+onMounted(() => {
+  uni.getSystemInfo({
+    success: (res) => {
+      windowWidth.value = res.windowWidth;
+    },
+  });
+});
+
+
+// export default {
+//   props: {
+//     tabs: {
+//       type: Array,
+//       default: () => []
+//     },
+//     activeIndex: {
+//       type: Number,
+//       default: 0
+//     }
+//   },
+//   methods: {
+//     handleTabClick(index) {
+//       this.$emit('tabClick', index);
+//     }
+//   }
+// };
+
+// export default {
+//   methods: {
+//     goToPage(path) {
+//       uni.navigateTo({ url: path });
+//     }
+//   }
+// }
 </script>
 
 <style lang="scss">
-page{
-	position: relative;
+.home {
+  .header {
+    margin-top: 12rpx;
+    padding: 0 31rpx;
+    display: flex;
+    align-items: center;
+    color: white;
+    image {
+      width: 62rpx;
+      height: 62rpx;
+      border-radius: 62rpx;
+    }
+
+    .username {
+      font-size: 31rpx;
+      font-weight: 700;
+      margin-left: 15rpx;
+    }
+    .userpost {
+      font-size: 26.92rpx;
+      font-weight: 500;
+      margin-left: 15rpx;
+    }
+  }
+
+  .main {
+    padding: 0 30rpx;
+    //  banner
+    .banner {
+      width: 100%;
+      height: 292.31rpx;
+      margin: 30rpx auto 0;
+      display: block;
+      border-radius: 10rpx;
+    }
+    // 统计
+    .statistics {
+      width: 100%;
+      background-color: #f5f9ffff;
+      margin-top: 23rpx;
+      border-radius: 15.38rpx;
+      .statistics-top {
+        display: flex;
+        align-items: center;
+        font-size: 30.77rpx;
+        font-weight: 500;
+        height: 76.92rpx;
+        padding: 0 28rpx;
+        justify-content: space-between;
+        color: #1b243d;
+        .more {
+          color: #78808f;
+          font-size: 23.08rpx;
+        }
+      }
+
+      .statistics-bottom {
+        display: flex;
+
+        .statistics-item {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          text-align: center;
+          justify-content: center;
+          height: 123rpx;
+
+          .count {
+            font-size: 46.15rpx;
+            font-weight: 600;
+            &.blue {
+              color: #0550f7;
+            }
+            &.yellow {
+              color: #ff991f;
+            }
+          }
+          .title {
+            font-size: 23.08rpx;
+            margin-top: 10rpx;
+            color: #78808fff;
+          }
+        }
+      }
+
+      .data-statistics {
+        width: 20.5625rem;
+        border-radius: 0.625rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding: 0.9375rem;
+        box-sizing: border-box;
+
+        .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .more {
+            color: #aaa;
+          }
+        }
+
+        .data-item-box {
+          display: flex;
+          justify-content: space-between;
+          margin: 0 1.875rem;
+
+          .data-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.625rem;
+
+            .count {
+              color: #666ee8;
+              font-size: 1.25rem;
+            }
+
+            .title {
+              color: #333;
+            }
+          }
+        }
+      }
+
+      .info {
+        display: flex;
+        width: 20.5625rem;
+        height: 5.9375rem;
+        justify-content: space-between;
+        align-items: center;
+
+        .item {
+          width: 9.625rem;
+          height: 4.9375rem;
+          border-radius: 0.3125rem;
+          display: flex;
+          align-items: center;
+          padding: 0.625rem;
+          box-sizing: border-box;
+
+          .image {
+            width: 2.0625rem;
+            height: 1.6875rem;
+            margin: 9px;
+          }
+        }
+      }
+    }
+
+    // 广告牌
+    .ad {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 23rpx;
+      image {
+        width: 338.46rpx;
+        height: 157.69rpx;
+      }
+    }
+
+    .notice {
+      margin-top: 61rpx;
+      .notice-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 17rpx;
+        position: relative;
+        height: 45rpx;
+        &::before {
+          width: 5.77rpx;
+          height: 30.77rpx;
+          border-radius: 1.92px;
+          opacity: 1;
+          background: linear-gradient(180deg, #57a7ffff 0%, #258cebff 100%);
+          position: absolute;
+          content: "";
+          left: 0;
+        }
+        > text {
+          font-size: 30.77rpx;
+          font-weight: 500;
+          color: #1b243d;
+        }
+
+        .more {
+          color: #78808f;
+          font-size: 23.08rpx;
+        }
+
+        .num {
+          font-size: 23.08rpx;
+          font-weight: 500;
+          color: #eb1c38ff;
+          margin-left: 7.6rpx;
+        }
+      }
+
+      .notice-list {
+        .notice-list-item {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          border-bottom: 1rpx solid #78808f83;
+          justify-content: center;
+          height: 128rpx;
+          .title {
+            font-size: 26.92rpx;
+            font-weight: 500;
+            color: #1b243dff;
+          }
+          .bot {
+            background-color: #fa5151;
+            content: "";
+            display: inline-block;
+            width: 10rpx;
+            height: 10rpx;
+            vertical-align: top;
+            border-radius: 10rpx;
+            margin-right: 10rpx;
+          }
+
+          .info {
+            font-size: 23.08rpx;
+            font-weight: 400;
+            color: #78808f;
+            margin-top: 10rpx;
+          }
+          .more {
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
 }
-	.container {
-		font-size: 14px;
-		line-height: 24px;
-		box-sizing: border-box;
-		
-		.nav-bar{
-			position: relative;
-			height: 4rem;
-			padding-left: 0.625rem;
 
-			.title{
-				position: absolute;
-				font-weight: 700;
-				top: 1.8rem;
-			}
-		}
+// .nav-footer {
+//   left: 0;
+//   bottom: 0;
+//   display: flex;
+//   justify-content: space-around;
+//   background-color: #fff;
+//   border-top: 1px solid #ccc;
+//   padding: 0.625rem 0;
+//   margin-top: 100px;
 
-		.banner{
-			width: 100%;
+//   .item {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// }
 
-			.image{
-				width: 100%;
-			}
-		}
+// .fixed-button {
+//   position: fixed;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 60px;
+//   background-color: #ccc;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-		.statistics-box{
-			position: relative;
-			width: 100%;
 
-			.statistics{
-				width: 100%;
-				position: absolute;
-				top: -70px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
+// .bottom-tab-bar {
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 60px;
+//   background-color: #fff;
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+// }
 
-			.item{
-				background-color: #f2f2f2;
-			}
+// .tab-item {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
 
-			.data-statistics{
-				width: 20.5625rem;
-				border-radius: 0.625rem;
-				border-top-left-radius: 0;
-				border-top-right-radius: 0;
-				padding: 0.9375rem;
-				box-sizing: border-box;
+// .tab-icon {
+//   width: 24px;
+//   height: 24px;
+// }
 
-				.top{
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
+// .tab-title {
+//   font-size: 12px;
+//   margin-top: 4px;
+// }
 
-					.more{
-						color:#aaa
-					}
-				}
+// .custom-tabbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   height: 60px;
+//   background-color: #fff;
+//   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+// }
 
-				.data-item-box{
-					display: flex;
-					justify-content: space-between;
-					margin: 0 1.875rem;
+// .tabbar-item {
+//   flex: 1;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100%;
+// }
 
-					.data-item{
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						padding: 0.625rem;
-
-						.count{
-							color:#666EE8;
-							font-size: 1.25rem;
-						}
-
-						.title{
-							color:#333
-						}
-					}
-				}
-				
-			}
-
-			.info{
-				display: flex;
-				width: 20.5625rem;
-				height: 5.9375rem;
-				justify-content: space-between;
-				align-items: center;
-
-				.item{
-					width: 9.625rem;
-					height: 4.9375rem;
-					border-radius: 0.3125rem;
-					display: flex;
-					align-items: center;
-					padding: 0.625rem;
-					box-sizing: border-box;
-
-					.image{
-						width: 2.0625rem;
-						height: 1.6875rem;
-						margin: 
-						9px;
-					}
-				}
-			}
-			
-			
-		}
-	}
-
-	.empty{
-		height: 160px;
-	}
-
-	.section{
-		position: relative;
-		display: flex;
-		justify-content: space-between;
-		padding: 0 30px;
-
-		.section-icon{
-			height: 0.9375rem;
-			position: absolute;
-			top: 2px;
-			left: 20px;
-			border: 0.125rem solid #d9001bfe;
-		}
-
-		.num{
-				color: #d9001bfe;
-			}
-	}
-
-	.list{
-		margin: 10px 0;
-		border-bottom: 0.0625rem solid #ccc;
-		padding: 0.3125rem;
-		box-sizing: border-box;
-
-		.item-box{
-			display: flex;
-			justify-content: space-between;
-			padding: 0.3125rem 0.625rem;
-
-			.info{
-				color:#999999;
-				font-size: 0.75rem;
-			}
-
-			.right{
-				color:#999999;
-				font-size: 1.25rem;
-			}
-		}
-	}
-
-	.nav-footer{
-		left: 0;
-		bottom: 0;
-		right: 0;
-		display: flex;
-		justify-content: space-around;
-		background-color: #fff;
-		border-top: 1px solid #ccc;
-		padding: 0.625rem 0;
-		margin-top: 100px;
-
-		.item{
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-	}
-	
-}
+// .tabbar-item-icon {
+//   /* 图标样式 */
+// }
 </style>

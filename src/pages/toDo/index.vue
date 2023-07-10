@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import ToDoCard from '../component/toDoCard/index.vue'
-import empty from '../component/empty/index.vue'
+import ToDoCard from '../../component/toDoCard/index.vue'
+import empty from '../../component/empty/index.vue'
 
 	export default {
 		components:{
