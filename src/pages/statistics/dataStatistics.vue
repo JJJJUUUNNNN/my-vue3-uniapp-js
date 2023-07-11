@@ -1,6 +1,6 @@
 <template>
   <div class="container data-statistics">
-    <CustomNavbar back title="数据统计" type="rank" />
+    <CustomNavbar back title="统计数据" type="rank" />
 
     <view class="header">
       <view>月度统计<br />排名</view>
@@ -34,6 +34,7 @@
 
 <script setup>
 import CustomNavbar from "../../component/CustomNavbar.vue";
+
 </script>
 
 <style lang="scss">
@@ -51,7 +52,7 @@ page {
 
 .rank {
   margin: 0 30rpx;
-  margin-top: 20rpx;
+  margin-top: 80rpx;
   padding: 23rpx 15rpx;
   border-radius: 7.69rpx;
   background: linear-gradient(180deg, #d1e4ffff 0%, #ffffffff 6%);
