@@ -18,10 +18,28 @@
       }
     },
     {
-      "path": "pages/mine/index",
+      "path": "pages/user/index",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "个人中心",
         "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/user/menus/register/personal",
+      "style": {
+        "navigationBarTitleText": "我的登记"
+      }
+    },
+    {
+      "path": "pages/user/menus/register/company",
+      "style": {
+        "navigationBarTitleText": "我的登记"
+      }
+    },
+    {
+      "path": "pages/user/menus/setting",
+      "style": {
+        "navigationBarTitleText": "系统设置"
       }
     },
     {
