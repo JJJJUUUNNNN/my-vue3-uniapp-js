@@ -1,8 +1,8 @@
 <template>
   <view class="form-card">
-    <uni-forms ref="baseForm" :modelValue="baseFormData" label-position="top">
-      <uni-forms-item v-for="(item,index) in formData" :key="index" class="form-item" :label="item.label">
-        <uni-easyinput v-model="baseFormData[item.model]" placeholder="请输入" placeholder-style="color: #A5ACB8" />
+    <uni-forms ref="baseForm" :modelValue="baseFormData" :label-position="labelPosition">
+      <uni-forms-item v-for="(item,index) in formData" :key="index" class="form-item" :label="item.label" label-width="250rpx">
+        <uni-easyinput v-model="baseFormData[item.model]" placeholder="请输入" placeholder-style="color: #A5ACB8"/>
       </uni-forms-item>
     </uni-forms>
   </view>
@@ -13,6 +13,10 @@ const props=defineProps({
   formData:{
     type:Array,
     default:()=>[]
+  },
+  labelPosition:{
+    type:String,
+    default:'left'
   }
 })
 

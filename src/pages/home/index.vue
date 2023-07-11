@@ -61,10 +61,6 @@
       </view>
     </view>
 
-    <!--  <view class="fixed-button">
-            <button>固定按钮</button>
-          </view> -->
-          
       <!-- <view class="bottom-tab-bar">
       <view v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="{ active: index === activeIndex }" @click="handleTabClick(index)">
         <image :src="tab.icon" class="tab-icon"></image>
@@ -143,12 +139,6 @@ onMounted(() => {
 //     }
 //   }
 // };
-
-// export default {
-//   methods: {
-//     
-//   }
-// }
 </script>
 
 <style lang="scss">
@@ -393,19 +383,6 @@ onMounted(() => {
     }
   }
 }
-
-// .fixed-button {
-//   position: fixed;
-//   left: 0;
-//   bottom: 0;
-//   width: 100%;
-//   height: 60px;
-//   background-color: #ccc;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
 
 // .bottom-tab-bar {
 //   position: fixed;

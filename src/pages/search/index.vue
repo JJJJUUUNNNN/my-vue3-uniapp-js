@@ -7,10 +7,10 @@
 
     <view class="content">
       <view v-if="current === 0">
-        <FormCard :form-data="formData"></FormCard>
+        <FormCard :form-data="formData" :label-position="'top'"></FormCard>
       </view>
       <view v-if="current === 1">
-        <FormCard :form-data="formData"></FormCard>
+        <FormCard :form-data="formData" :label-position="'top'"></FormCard>
       </view>
     </view>
 

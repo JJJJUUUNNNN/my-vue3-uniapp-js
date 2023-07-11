@@ -1,15 +1,17 @@
 <template>
   <view class="list-card">
+    <text v-if="title!==''" class="title">{{ title }}</text>
     <view class="list-item" v-for="(item,index) in listData" :key="index">
       <view class="left-info">
         <image v-if="item.iconSrc!==undefined" class="icon" :src="item.iconSrc"></image>
-        <text class="text">{{ item.text }}</text>
+        <text class="title text">{{ item.text }}</text>
+        <text v-if="item.content!=undefined" class="text">{{ item.content }}</text>
       </view>
       <view class="right-info">
         <image v-if="item.rightImg!==undefined" class="image" :src="item.rightImg"></image>
         <text  v-if="item.rightInfo!==undefined" class="text">{{ item.rightInfo }}</text>
         <switch v-if="item.switch"  checked color="#07C160" style="transform:scale(0.7)"/>
-        <image v-if="!item.notLink" class="right-arrow" src="/static/right-arrow.png" @click="goToPage(item.url)"></image>
+        <image v-if="item.notLink===undefined" class="right-arrow" src="/static/right-arrow.png" @click="goToPage(item.url)"></image>
       </view>
     </view>
   </view>
@@ -22,9 +24,9 @@ const props=defineProps({
     type:Array,
     default:()=>[]
   },
-  link:{
-    type:Boolean,
-    default:false
+  title:{
+    type:String,
+    default:''
   }
 })
 
@@ -43,6 +45,12 @@ function goToPage(path){
   background: #ffffffff;
   padding: 23.08rpx;
   box-sizing: border-box;
+
+  .title{
+    color: #1b243dff;
+    font-size: 30.77rpx;
+    font-weight: 500;
+  }
 
   .list-item{
     height: 76.92rpx;
