@@ -7,17 +7,22 @@
 
     <view class="content">
       <view v-if="current === 0">
-        <FormCard></FormCard>
+        <FormCard :form-data="formData"></FormCard>
       </view>
       <view v-if="current === 1">
-        2
+        <FormCard :form-data="formData"></FormCard>
       </view>
     </view>
+
+    <button class="search-btn" @click="hanleSearch">查询</button>
   </view>
+
+  <CustomTabbar></CustomTabbar>
 </template>
 
 <script setup>
 import FormCard from '@/component/card/FormCard.vue';
+import CustomTabbar from '@/component/CustomTabbar.vue';
 
 const items = ref([
   {
@@ -32,8 +37,26 @@ const items = ref([
 
 const current=ref(0)
 
+const formData=ref([
+  {label:'集团单位',model:'company'},
+  {label:'姓名',model:'name'},
+  {label:'电话号码',model:'phone'}
+])
+
 function toggleNav(e) {
   current.value = e
+}
+
+function hanleSearch(){
+  if(current.value===0){
+    uni.navigateTo({
+      url:'/pages/search/detail/personal'
+    })
+  }else if(current.value===1){
+    uni.navigateTo({
+      url:'/pages/search/detail/company'
+    })
+  }
 }
 </script>
 
@@ -45,7 +68,6 @@ page {
 .nav-box {
   width: 546.15rpx;
   background-color: #EBEFF5;
-  height: 84.62rpx;
   margin: 0.75rem auto;
   display: flex;
   justify-content: space-evenly;
@@ -53,6 +75,7 @@ page {
   border-radius: 0.25rem;
   box-sizing: border-box;
   border-radius: 76.92rpx;
+  box-sizing: border-box;
 
   .nav-item-active {
     flex: 1;
@@ -78,6 +101,20 @@ page {
     line-height: 2.25rem;
     color: #000000ff;
     font-size: 26.92rpx;
+  }
+}
+
+.search-btn{
+  width: 596.15rpx;
+  height: 76.92rpx;
+  background: #1F78FF;
+  margin: 68.23rpx auto 0;
+  color: #ffffffff;
+  font-size: 30.77rpx;
+  font-weight: 500;
+
+  &::after{
+    border: 0;
   }
 }
 </style>

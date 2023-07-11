@@ -1,24 +1,25 @@
 <template>
   <view class="form-card">
     <uni-forms ref="baseForm" :modelValue="baseFormData" label-position="top">
-      <uni-forms-item class="form-item" label="姓名">
-        <uni-easyinput v-model="baseFormData.name" placeholder="请输入姓名" />
-      </uni-forms-item>
-      <uni-forms-item class="form-item" label="年龄">
-        <uni-easyinput v-model="baseFormData.age" placeholder="请输入年龄" />
-      </uni-forms-item>
-      <uni-forms-item class="form-item" label="年龄">
-        <uni-easyinput v-model="baseFormData.age" placeholder="请输入年龄" />
+      <uni-forms-item v-for="(item,index) in formData" :key="index" class="form-item" :label="item.label">
+        <uni-easyinput v-model="baseFormData[item.model]" placeholder="请输入" placeholder-style="color: #A5ACB8" />
       </uni-forms-item>
     </uni-forms>
   </view>
 </template>
 
 <script setup>
+const props=defineProps({
+  formData:{
+    type:Array,
+    default:()=>[]
+  }
+})
 
 const baseFormData=ref({
+  company:'',
   name:'',
-  age:'',
+  phone:''
 })
 </script>
 
@@ -30,9 +31,5 @@ const baseFormData=ref({
   padding: 23.08rpx;
   box-sizing: border-box;
   border-radius: 15.38rpx;
-
-  // :deep(.uni-forms){
-  //   background-color: red;
-  // }
 }
 </style>

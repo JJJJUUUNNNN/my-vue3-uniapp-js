@@ -20,11 +20,11 @@
 const props=defineProps({
   listData:{
     type:Array,
-    defalute:()=>[]
+    default:()=>[]
   },
   link:{
     type:Boolean,
-    defalute:false
+    default:false
   }
 })
 
