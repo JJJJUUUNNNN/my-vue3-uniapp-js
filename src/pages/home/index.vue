@@ -107,7 +107,7 @@ function handleMessage() {
 function getDetail() {
   console.log("平台通知公告");
   uni.navigateTo({
-    url: "/pages/announcement/platformAnnouncement/index",
+    url: "/pages/announcement/detail/index",
   });
 }
 
