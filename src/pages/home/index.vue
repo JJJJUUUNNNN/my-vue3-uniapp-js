@@ -47,7 +47,7 @@
         <view class="notice-list">
           <view
             class="notice-list-item"
-            v-for="(item, index) in 2"
+            v-for="(item, index) in 3"
             :key="index"
             @click="getDetail"
           >
@@ -61,36 +61,10 @@
       </view>
     </view>
 
-    <!-- <view class="nav-footer">
-      <view class="item">
-        <uni-icons
-          custom-prefix="custom-icon"
-          type="home-filled"
-          size="30"
-        ></uni-icons>
-        <text>首页</text>
-      </view>
-      <view class="item">
-        <uni-icons
-          custom-prefix="custom-icon"
-          type="search"
-          size="30"
-        ></uni-icons>
-        <text>查询</text>
-      </view>
-      <view class="item">
-        <uni-icons
-          custom-prefix="custom-icon"
-          type="person-filled"
-          size="30"
-        ></uni-icons>
-        <text>个人中心</text>
-      </view>
-    </view> -->
-
-    <!-- <view class="fixed-button">
-      <button>固定按钮</button>
-    </view> -->
+    <!--  <view class="fixed-button">
+            <button>固定按钮</button>
+          </view> -->
+          
       <!-- <view class="bottom-tab-bar">
       <view v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="{ active: index === activeIndex }" @click="handleTabClick(index)">
         <image :src="tab.icon" class="tab-icon"></image>
@@ -99,22 +73,12 @@
     </view> -->
   </view>
 
-  <view class="custom-tabbar">
-    <!-- 自定义导航栏 -->
-    <view class="tabbar-item" @click="goToPage('/pages/home/home')">
-      <text class="tabbar-item-icon">首页</text>
-    </view>
-    <view class="tabbar-item" @click="goToPage('/pages/cart/cart')">
-      <text class="tabbar-item-icon">购物车</text>
-    </view>
-    <view class="tabbar-item" @click="goToPage('/pages/user/user')">
-      <text class="tabbar-item-icon">个人中心</text>
-    </view>
-  </view>
+  <CustomTabbar></CustomTabbar>
 </template>
 
 <script setup>
 import CustomNavbar from "../../component/CustomNavbar.vue";
+import CustomTabbar from '../../component/CustomTabbar.vue'
 
 function checkMore() {
   console.log("统计数据");
@@ -182,15 +146,15 @@ onMounted(() => {
 
 // export default {
 //   methods: {
-//     goToPage(path) {
-//       uni.navigateTo({ url: path });
-//     }
+//     
 //   }
 // }
 </script>
 
 <style lang="scss">
 .home {
+  padding-bottom: 100px;
+
   .header {
     margin-top: 12rpx;
     padding: 0 31rpx;
@@ -430,23 +394,6 @@ onMounted(() => {
   }
 }
 
-// .nav-footer {
-//   left: 0;
-//   bottom: 0;
-//   display: flex;
-//   justify-content: space-around;
-//   background-color: #fff;
-//   border-top: 1px solid #ccc;
-//   padding: 0.625rem 0;
-//   margin-top: 100px;
-
-//   .item {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-// }
-
 // .fixed-button {
 //   position: fixed;
 //   left: 0;
@@ -486,29 +433,5 @@ onMounted(() => {
 // .tab-title {
 //   font-size: 12px;
 //   margin-top: 4px;
-// }
-
-// .custom-tabbar {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   position: fixed;
-//   bottom: 0;
-//   width: 100%;
-//   height: 60px;
-//   background-color: #fff;
-//   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-// }
-
-// .tabbar-item {
-//   flex: 1;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100%;
-// }
-
-// .tabbar-item-icon {
-//   /* 图标样式 */
 // }
 </style>
