@@ -18,6 +18,24 @@
       }
     },
     {
+      "path": "pages/search/index",
+      "style": {
+        "navigationBarTitleText": "查询客户信息"
+      }
+    },
+    {
+      "path": "pages/search/detail/personal",
+      "style": {
+        "navigationBarTitleText": "个人详情"
+      }
+    },
+    {
+      "path": "pages/search/detail/company",
+      "style": {
+        "navigationBarTitleText": "集团详情"
+      }
+    },
+    {
       "path": "pages/user/index",
       "style": {
         "navigationBarTitleText": "个人中心",

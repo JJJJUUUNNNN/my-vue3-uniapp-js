@@ -4,8 +4,8 @@
       <uni-icons custom-prefix="custom-icon" type="home-filled" size="20" :color="isActive?'#258CEB':'#222628'"></uni-icons>
       <text class="tabbar-item-title" :class="{active:isActive}">主页</text>
     </view>
-    <view class="tabbar-item" @click="goToPage('/pages/home/home')">
-      <view class="tabbar-item-search" @click="goToPage('/pages/cart/cart')">
+    <view class="tabbar-item" @click="goToPage('/pages/search/index')">
+      <view class="tabbar-item-search">
         <image class="image" src="/static/icon-search.png"></image>
       </view>
     </view>
